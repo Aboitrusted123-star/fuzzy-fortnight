@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import os
 import io
+import treepoem
 
 def generate_test_images(output_dir):
     if not os.path.exists(output_dir):
@@ -15,6 +16,11 @@ def generate_test_images(output_dir):
         qr.add_data(data)
         qr.make(fit=True)
         img = np.array(qr.make_image(fill_color="black", back_color="white").convert('RGB'))
+        return cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+
+    def create_datamatrix(data):
+        img_pil = treepoem.generate_barcode(barcode_type='datamatrix', data=data)
+        img = np.array(img_pil.convert('RGB'))
         return cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
     def create_barcode(data, type='code128'):
@@ -36,6 +42,7 @@ def generate_test_images(output_dir):
 
     codes = [
         ("QR", create_qr("PeekScan-QR-Test")),
+        ("DM", create_datamatrix("PeekScan-DM-Test")),
         ("C128", create_barcode("PS-12345678", 'code128')),
         ("UPCA", create_barcode("123456789012", 'upca')),
         ("EAN13", create_barcode("1234567890123", 'ean13')),

@@ -3,6 +3,11 @@ import numpy as np
 from pyzbar.pyzbar import decode
 import os
 
+try:
+    from pylibdmtx.pylibdmtx import decode as dmtx_decode
+except ImportError:
+    dmtx_decode = None
+
 class PeekScanVision:
     def __init__(self):
         self.qr_detector = cv2.QRCodeDetector()
@@ -33,7 +38,7 @@ class PeekScanVision:
         gray_masked[mask] = 127 # Neutral gray
         return gray_masked
 
-    def preprocess(self, image, clahe_clip=3.0, adaptive_block=11, adaptive_c=2, use_dehaze=False, glint_reduction=False, use_inpaint=False, use_masking=False):
+    def preprocess(self, image, clahe_clip=3.0, adaptive_block=11, adaptive_c=2, use_dehaze=False, glint_reduction=False, use_inpaint=False, use_masking=False, use_morph_open=False):
         if len(image.shape) == 3:
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         else:
@@ -58,6 +63,10 @@ class PeekScanVision:
             gray = cv2.medianBlur(gray, 3)
             gray = cv2.normalize(gray, None, 0, 255, cv2.NORM_MINMAX)
 
+        if use_morph_open:
+            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+            gray = cv2.morphologyEx(gray, cv2.MORPH_OPEN, kernel)
+
         if use_dehaze:
             gray = self.dehaze(gray)
 
@@ -77,11 +86,17 @@ class PeekScanVision:
         return binary
 
     def try_decode(self, img):
-        # Try pyzbar
+        # Try pyzbar (QR and 1D)
         results = decode(img)
         if results:
             return [{"type": r.type, "data": r.data.decode("utf-8")} for r in results]
         
+        # Try pylibdmtx (DataMatrix)
+        if dmtx_decode:
+            dm_results = dmtx_decode(img)
+            if dm_results:
+                return [{"type": "DATAMATRIX", "data": r.data.decode("utf-8")} for r in dm_results]
+
         # Try OpenCV QRCodeDetector
         data, points, _ = self.qr_detector.detectAndDecode(img)
         if data:
@@ -95,32 +110,34 @@ class PeekScanVision:
         if res: return res, "original"
 
         # 2. Try iterative preprocessing
-        # Strategies: (use_dehaze, glint_reduction, use_inpaint, use_masking)
+        # Strategies: (use_dehaze, glint_reduction, use_inpaint, use_masking, use_morph_open)
         strategies = [
-            (False, False, False, False), # standard
-            (True, False, False, False),  # dehaze only
-            (False, True, False, False),  # glint reduction only
-            (False, False, True, False),  # inpaint only
-            (False, False, False, True),  # masking only
-            (True, True, False, False),   # dehaze + glint
-            (True, False, True, False),   # dehaze + inpaint
-            (False, True, False, True),   # glint + masking
+            (False, False, False, False, False), # standard
+            (True, False, False, False, False),  # dehaze only
+            (False, True, False, False, False),  # glint reduction only
+            (False, False, True, False, False),  # inpaint only
+            (False, False, False, True, False),  # masking only
+            (False, False, False, False, True),  # morph open only
+            (True, True, False, False, False),   # dehaze + glint
+            (False, True, False, True, False),   # glint + masking
+            (True, False, False, False, True),   # dehaze + morph open
         ]
         
-        for dehaze_flag, glint_flag, inpaint_flag, mask_flag in strategies:
+        for dehaze_flag, glint_flag, inpaint_flag, mask_flag, morph_flag in strategies:
             for clip in [2.0, 5.0]: 
-                for block in [11, 21, 51, 91]: # Included smaller and larger blocks
+                for block in [11, 31, 61, 91]: 
                     processed = self.preprocess(image, clahe_clip=clip, adaptive_block=block, 
                                               use_dehaze=dehaze_flag, glint_reduction=glint_flag, 
-                                              use_inpaint=inpaint_flag, use_masking=mask_flag)
+                                              use_inpaint=inpaint_flag, use_masking=mask_flag,
+                                              use_morph_open=morph_flag)
                     res = self.try_decode(processed)
                     if res:
-                        return res, f"g{glint_flag}_d{dehaze_flag}_i{inpaint_flag}_m{mask_flag}_c{clip}_b{block}"
+                        return res, f"g{glint_flag}_d{dehaze_flag}_i{inpaint_flag}_m{mask_flag}_o{morph_flag}_c{clip}_b{block}"
                     
                     # Try with inversion
                     res = self.try_decode(cv2.bitwise_not(processed))
                     if res:
-                        return res, f"inv_g{glint_flag}_d{dehaze_flag}_i{inpaint_flag}_m{mask_flag}_c{clip}_b{block}"
+                        return res, f"inv_g{glint_flag}_d{dehaze_flag}_i{inpaint_flag}_m{mask_flag}_o{morph_flag}_c{clip}_b{block}"
 
         # 3. Try Morphological (Erosion for 1D barcodes)
         for clip in [3.0, 5.0]:

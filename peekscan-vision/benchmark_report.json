@@ -3,7 +3,7 @@
         "total": 46,
         "success": 33,
         "accuracy": 71.74,
-        "avg_time_ms": 1053.52
+        "avg_time_ms": 1084.65
     },
     "results": [
         {
@@ -12,7 +12,7 @@
             "obstruction": "clean",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.5,
+            "time_ms": 3.34,
             "data": "PeekScan-QR-Test"
         },
         {
@@ -21,7 +21,7 @@
             "obstruction": "None",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.99,
+            "time_ms": 2.93,
             "data": "PeekScan-HARD-Mode"
         },
         {
@@ -39,7 +39,7 @@
             "obstruction": "None",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.65,
+            "time_ms": 3.29,
             "data": "PeekScan-HARD-Mode"
         },
         {
@@ -48,7 +48,7 @@
             "obstruction": "frosted_tape",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 22.69,
+            "time_ms": 21.88,
             "data": "PeekScan-QR-Test"
         },
         {
@@ -57,7 +57,7 @@
             "obstruction": "None",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.58,
+            "time_ms": 2.55,
             "data": "PeekScan-HARD-Mode"
         },
         {
@@ -66,7 +66,7 @@
             "obstruction": "shrink_wrap_tight",
             "status": "FAILED",
             "source": null,
-            "time_ms": 2697.23,
+            "time_ms": 2570.29,
             "data": null
         },
         {
@@ -75,7 +75,7 @@
             "obstruction": "None",
             "status": "FAILED",
             "source": null,
-            "time_ms": 3143.6,
+            "time_ms": 3212.59,
             "data": null
         },
         {
@@ -84,7 +84,7 @@
             "obstruction": "shrink_wrap_wrinkled",
             "status": "FAILED",
             "source": null,
-            "time_ms": 3007.3,
+            "time_ms": 2994.73,
             "data": null
         },
         {
@@ -93,7 +93,7 @@
             "obstruction": "None",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.67,
+            "time_ms": 2.49,
             "data": "PeekScan-HARD-Mode"
         },
         {
@@ -102,7 +102,7 @@
             "obstruction": "glint_overhead",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.61,
+            "time_ms": 3.42,
             "data": "PeekScan-QR-Test"
         },
         {
@@ -111,7 +111,7 @@
             "obstruction": "light",
             "status": "SUCCESS",
             "source": "gFalse_dFalse_iFalse_mFalse_c2.0_b91",
-            "time_ms": 215.05,
+            "time_ms": 225.99,
             "data": "PeekScan-HARD-Mode"
         },
         {
@@ -120,7 +120,7 @@
             "obstruction": "glint_side",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 4.0,
+            "time_ms": 3.97,
             "data": "PeekScan-QR-Test"
         },
         {
@@ -129,7 +129,7 @@
             "obstruction": "None",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.66,
+            "time_ms": 2.48,
             "data": "PeekScan-HARD-Mode"
         },
         {
@@ -138,7 +138,7 @@
             "obstruction": "dim_light",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.86,
+            "time_ms": 2.75,
             "data": "PeekScan-QR-Test"
         },
         {
@@ -147,7 +147,7 @@
             "obstruction": "glint",
             "status": "FAILED",
             "source": null,
-            "time_ms": 2897.38,
+            "time_ms": 3096.99,
             "data": null
         },
         {
@@ -156,7 +156,7 @@
             "obstruction": "tamper_seal",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.34,
+            "time_ms": 3.26,
             "data": "PeekScan-QR-Test"
         },
         {
@@ -165,7 +165,7 @@
             "obstruction": "seal",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.76,
+            "time_ms": 3.14,
             "data": "PeekScan-HARD-Mode"
         },
         {
@@ -174,7 +174,7 @@
             "obstruction": "clean",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.61,
+            "time_ms": 2.59,
             "data": "PS-12345678"
         },
         {
@@ -183,7 +183,7 @@
             "obstruction": "lens",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.21,
+            "time_ms": 3.14,
             "data": "PeekScan-HARD-Mode"
         },
         {
@@ -192,7 +192,7 @@
             "obstruction": "clear_tape",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.43,
+            "time_ms": 2.34,
             "data": "PS-12345678"
         },
         {
@@ -201,7 +201,7 @@
             "obstruction": "frosted_tape",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.24,
+            "time_ms": 2.13,
             "data": "PS-12345678"
         },
         {
@@ -210,7 +210,7 @@
             "obstruction": "shrink_wrap_tight",
             "status": "FAILED",
             "source": null,
-            "time_ms": 3518.83,
+            "time_ms": 3608.45,
             "data": null
         },
         {
@@ -219,7 +219,7 @@
             "obstruction": "shrink_wrap_wrinkled",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 2.81,
+            "time_ms": 2.6,
             "data": "PS-12345678"
         },
         {
@@ -228,7 +228,7 @@
             "obstruction": "glint_overhead",
             "status": "FAILED",
             "source": null,
-            "time_ms": 2973.41,
+            "time_ms": 2811.42,
             "data": null
         },
         {
@@ -237,7 +237,7 @@
             "obstruction": "glint_side",
             "status": "FAILED",
             "source": null,
-            "time_ms": 2968.93,
+            "time_ms": 2974.1,
             "data": null
         },
         {
@@ -246,7 +246,7 @@
             "obstruction": "dim_light",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.08,
+            "time_ms": 3.03,
             "data": "PS-12345678"
         },
         {
@@ -273,7 +273,7 @@
             "obstruction": "clear_tape",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.73,
+            "time_ms": 3.99,
             "data": "0123456789012"
         },
         {
@@ -282,7 +282,7 @@
             "obstruction": "frosted_tape",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.22,
+            "time_ms": 3.18,
             "data": "0123456789012"
         },
         {
@@ -291,7 +291,7 @@
             "obstruction": "shrink_wrap_tight",
             "status": "FAILED",
             "source": null,
-            "time_ms": 4592.75,
+            "time_ms": 4744.31,
             "data": null
         },
         {
@@ -300,7 +300,7 @@
             "obstruction": "shrink_wrap_wrinkled",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.74,
+            "time_ms": 3.76,
             "data": "0123456789012"
         },
         {
@@ -309,7 +309,7 @@
             "obstruction": "glint_overhead",
             "status": "FAILED",
             "source": null,
-            "time_ms": 3972.14,
+            "time_ms": 4062.62,
             "data": null
         },
         {
@@ -318,7 +318,7 @@
             "obstruction": "glint_side",
             "status": "FAILED",
             "source": null,
-            "time_ms": 4023.65,
+            "time_ms": 4025.41,
             "data": null
         },
         {
@@ -327,7 +327,7 @@
             "obstruction": "dim_light",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 4.33,
+            "time_ms": 4.37,
             "data": "0123456789012"
         },
         {
@@ -336,7 +336,7 @@
             "obstruction": "tamper_seal",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 4.52,
+            "time_ms": 4.5,
             "data": "0123456789012"
         },
         {
@@ -345,7 +345,7 @@
             "obstruction": "clean",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.64,
+            "time_ms": 3.69,
             "data": "1234567890128"
         },
         {
@@ -354,7 +354,7 @@
             "obstruction": "clear_tape",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.81,
+            "time_ms": 3.83,
             "data": "1234567890128"
         },
         {
@@ -363,7 +363,7 @@
             "obstruction": "frosted_tape",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.18,
+            "time_ms": 3.21,
             "data": "1234567890128"
         },
         {
@@ -372,7 +372,7 @@
             "obstruction": "shrink_wrap_tight",
             "status": "FAILED",
             "source": null,
-            "time_ms": 6309.68,
+            "time_ms": 6789.55,
             "data": null
         },
         {
@@ -381,7 +381,7 @@
             "obstruction": "shrink_wrap_wrinkled",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 3.83,
+            "time_ms": 3.81,
             "data": "1234567890128"
         },
         {
@@ -390,7 +390,7 @@
             "obstruction": "glint_overhead",
             "status": "FAILED",
             "source": null,
-            "time_ms": 3944.09,
+            "time_ms": 4131.59,
             "data": null
         },
         {
@@ -399,7 +399,7 @@
             "obstruction": "glint_side",
             "status": "FAILED",
             "source": null,
-            "time_ms": 4070.62,
+            "time_ms": 4521.67,
             "data": null
         },
         {
@@ -408,7 +408,7 @@
             "obstruction": "dim_light",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 4.42,
+            "time_ms": 4.32,
             "data": "1234567890128"
         },
         {
@@ -417,7 +417,7 @@
             "obstruction": "tamper_seal",
             "status": "SUCCESS",
             "source": "original",
-            "time_ms": 4.53,
+            "time_ms": 4.41,
             "data": "1234567890128"
         }
     ]
