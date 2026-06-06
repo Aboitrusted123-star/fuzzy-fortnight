@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeekScan — See Through It.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0D0D0D;
+      color: #FFFFFF;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navigation */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 24px; max-width: 1200px; margin: 0 auto;
+      position: sticky; top: 0; background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(12px); z-index: 100;
+    }
+    .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+    .logo span { color: #00D4FF; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: #B3B3B3; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #FFFFFF; }
+    .nav-cta {
+      background: #00D4FF; color: #0D0D0D; padding: 10px 22px;
+      border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* Hero */
+    .hero {
+      display: flex; align-items: center; gap: 60px;
+      padding: 80px 24px 60px; max-width: 1200px; margin: 0 auto; min-height: 85vh;
+    }
+    .hero-text { flex: 1; }
+    .hero-text .badge {
+      display: inline-block; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3);
+      color: #00D4FF; padding: 6px 16px; border-radius: 100px;
+      font-size: 13px; font-weight: 600; margin-bottom: 20px;
+    }
+    .hero-text h1 { font-size: 64px; font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 20px; }
+    .hero-text h1 span { color: #00D4FF; }
+    .hero-text p { font-size: 18px; color: #B3B3B3; margin-bottom: 36px; max-width: 500px; line-height: 1.7; }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: #00D4FF; color: #0D0D0D; padding: 14px 32px;
+      border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      border: 1px solid #333; color: #FFFFFF; padding: 14px 32px;
+      border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #00D4FF; }
+    .hero-visual { flex: 1; display: flex; justify-content: center; }
+    .phone-frame {
+      width: 280px; height: 570px; background: #1A1A1A; border-radius: 40px;
+      border: 3px solid #262626; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .phone-frame .notch {
+      position: absolute; top: 12px; width: 120px; height: 28px;
+      background: #0D0D0D; border-radius: 20px; z-index: 2;
+    }
+    .scan-area {
+      width: 200px; height: 170px; border: 2px solid #00D4FF; border-radius: 14px;
+      position: relative; box-shadow: 0 0 40px rgba(0,212,255,0.12);
+    }
+    .corner { position: absolute; width: 22px; height: 22px; border-color: #00D4FF; border-style: solid; }
+    .corner.tl { top: -2px; left: -2px; border-width: 3px 0 0 3px; border-radius: 8px 0 0 0; }
+    .corner.tr { top: -2px; right: -2px; border-width: 3px 3px 0 0; border-radius: 0 8px 0 0; }
+    .corner.bl { bottom: -2px; left: -2px; border-width: 0 0 3px 3px; border-radius: 0 0 0 8px; }
+    .corner.br { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; border-radius: 0 0 8px 0; }
+    .scan-line {
+      position: absolute; left: 14px; right: 14px; height: 2px;
+      background: #00D4FF; border-radius: 2px; opacity: 0.8;
+      animation: scan 2s ease-in-out infinite; box-shadow: 0 0 8px #00D4FF;
+    }
+    @keyframes scan {
+      0%, 100% { top: 14px; }
+      50% { top: 140px; }
+    }
+    .phone-frame .status { position: absolute; bottom: 40px; font-size: 11px; color: #00D4FF; letter-spacing: 2px; font-weight: 600; }
+
+    /* Problem/Solution */
+    .problem-section {
+      text-align: center; padding: 80px 24px; max-width: 800px; margin: 0 auto;
+    }
+    .problem-section .problem { font-size: 32px; font-weight: 800; color: #FF6B6B; margin-bottom: 8px; }
+    .problem-section .solution { font-size: 32px; font-weight: 800; color: #00D4FF; margin-bottom: 24px; }
+    .problem-section p { color: #B3B3B3; font-size: 17px; line-height: 1.8; }
+
+    /* How it Works */
+    .section { padding: 80px 24px; max-width: 1200px; margin: 0 auto; text-align: center; }
+    .section h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+    .section .subtitle { color: #B3B3B3; font-size: 16px; margin-bottom: 48px; }
+    .steps { display: flex; gap: 40px; justify-content: center; }
+    .step { flex: 1; max-width: 300px; }
+    .step-icon {
+      width: 64px; height: 64px; background: #1A1A1A; border: 1px solid #262626;
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin: 0 auto 20px;
+    }
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: #737373; line-height: 1.7; }
+    .step-arrow { font-size: 24px; color: #00D4FF; display: flex; align-items: center; padding-top: 24px; }
+
+    /* Features */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      padding: 20px 0;
+    }
+    .feature-card {
+      background: #1A1A1A; border: 1px solid #262626; border-radius: 14px;
+      padding: 28px 24px; text-align: left; transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: #00D4FF; }
+    .feature-icon { font-size: 28px; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 13px; color: #737373; line-height: 1.6; }
+
+    /* Pricing */
+    .pricing-grid { display: flex; gap: 24px; justify-content: center; padding: 20px 0; }
+    .pricing-card {
+      background: #1A1A1A; border: 1px solid #262626; border-radius: 16px;
+      padding: 32px; flex: 1; max-width: 340px; text-align: center;
+      display: flex; flex-direction: column;
+    }
+    .pricing-card.featured { border-color: #00D4FF; position: relative; }
+    .pricing-card.featured .popular {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: #00D4FF; color: #0D0D0D; padding: 4px 16px; border-radius: 20px;
+      font-size: 12px; font-weight: 700;
+    }
+    .pricing-card h3 { font-size: 20px; margin-bottom: 8px; }
+    .pricing-card .price { font-size: 42px; font-weight: 900; color: #00D4FF; margin-bottom: 4px; }
+    .pricing-card .period { font-size: 14px; color: #737373; margin-bottom: 24px; }
+    .pricing-card ul { list-style: none; text-align: left; margin-bottom: 28px; flex: 1; }
+    .pricing-card ul li { padding: 8px 0; font-size: 14px; color: #B3B3B3; border-bottom: 1px solid #1A1A1A; }
+    .pricing-card ul li::before { content: '✓ '; color: #34D399; font-weight: 700; }
+    .pricing-card .btn {
+      display: block; padding: 14px; border-radius: 10px; font-weight: 700;
+      text-decoration: none; font-size: 15px; transition: opacity 0.2s;
+    }
+    .pricing-card .btn.primary { background: #00D4FF; color: #0D0D0D; }
+    .pricing-card .btn:hover { opacity: 0.9; }
+
+    /* Testimonial */
+    .testimonial {
+      background: #1A1A1A; border: 1px solid #262626; border-radius: 16px;
+      padding: 48px; max-width: 700px; margin: 40px auto 0; text-align: center;
+    }
+    .testimonial blockquote { font-size: 20px; color: #FFFFFF; margin-bottom: 16px; line-height: 1.6; }
+    .testimonial blockquote::before { content: '"'; color: #00D4FF; font-size: 32px; }
+    .testimonial blockquote::after { content: '"'; color: #00D4FF; font-size: 32px; }
+    .testimonial cite { font-size: 14px; color: #737373; font-style: normal; }
+
+    /* CTA */
+    .cta { text-align: center; padding: 80px 24px; }
+    .cta h2 { font-size: 40px; font-weight: 800; margin-bottom: 16px; }
+    .cta p { color: #B3B3B3; margin-bottom: 36px; font-size: 17px; }
+    .store-badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #1A1A1A; padding: 32px 24px; text-align: center;
+    }
+    footer p { color: #737373; font-size: 13px; }
+    footer .links { margin-bottom: 12px; }
+    footer .links a { color: #737373; text-decoration: none; margin: 0 16px; font-size: 13px; }
+    footer .links a:hover { color: #00D4FF; }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; padding-top: 40px; }
+      .hero-text h1 { font-size: 40px; }
+      .hero-text p { margin: 0 auto 36px; }
+      .hero-buttons { justify-content: center; }
+      .nav-links { display: none; }
+      .steps { flex-direction: column; align-items: center; }
+      .step-arrow { transform: rotate(90deg); padding: 8px 0; }
+      .features-grid { grid-template-columns: 1fr; }
+      .pricing-grid { flex-direction: column; align-items: center; }
+      .problem-section .problem,
+      .problem-section .solution { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Peek<span>Scan</span></div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#" class="nav-cta">Download</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="badge">🚀 Now available on iOS & Android</div>
+      <h1>See<br><span>Through</span> It.</h1>
+      <p>Scan barcodes through tape, seals, stickers, and shrink wrap. No peeling required.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">🍎 Download on App Store</a>
+        <a href="#" class="btn-secondary">▶️ Get it on Google Play</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone-frame">
+        <div class="notch"></div>
+        <div class="scan-area">
+          <div class="corner tl"></div>
+          <div class="corner tr"></div>
+          <div class="corner bl"></div>
+          <div class="corner br"></div>
+          <div class="scan-line"></div>
+        </div>
+        <div class="status">● SCANNING</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem/Solution -->
+  <section class="problem-section">
+    <div class="problem">Codes get covered.</div>
+    <div class="solution">We see through it.</div>
+    <p>Tape, seals, shrink wrap — barcodes buried under layers. Every warehouse worker knows the frustration of peeling and re-taping. PeekScan's AI reads right through the covering. <strong>No peeling. No delay.</strong></p>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <h2>How It Works</h2>
+    <p class="subtitle">Three seconds. Three steps.</p>
+    <div style="display:flex;align-items:flex-start;justify-content:center;gap:20px;flex-wrap:wrap;">
+      <div class="step">
+        <div class="step-icon">📷</div>
+        <h3>Point</h3>
+        <p>Aim the camera at the barcode — even through tape, seals, or shrink wrap.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-icon">⚡</div>
+        <h3>Process</h3>
+        <p>AI enhances the image, filters out occlusions, and decodes the hidden barcode.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-icon">✅</div>
+        <h3>Done</h3>
+        <p>Get your decoded data instantly. One tap to copy, share, or save to history.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section">
+    <h2>Built for the Warehouse</h2>
+    <p class="subtitle">Everything you need. Nothing you don't.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">👁️</div>
+        <h3>See Through Seals</h3>
+        <p>Advanced AI reads barcodes through tape, shrink wrap, stickers, and tamper-evident seals.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Auto-Detect</h3>
+        <p>No tap required. Just point the camera and PeekScan scans automatically.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Multi-Format</h3>
+        <p>UPC, EAN, QR, Code 128, Code 39, Data Matrix, and more. All supported.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌙</div>
+        <h3>Dark Mode</h3>
+        <p>Easy on the eyes in dim warehouses. Saves battery on OLED screens.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>One-Tap Copy</h3>
+        <p>Copy to clipboard, share, or save to history with a single tap.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>100% Local</h3>
+        <p>All processing on-device. No images uploaded. No data collected. Period.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <h2>Simple Pricing</h2>
+    <p class="subtitle">Start free. Upgrade when you need more.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <div class="period">forever</div>
+        <ul>
+          <li>5 scans per day</li>
+          <li>Basic processing</li>
+          <li>Scan history</li>
+          <li>Standard support</li>
+        </ul>
+        <a href="#" class="btn" style="border:1px solid #333;color:#B3B3B3;">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="popular">Most Popular</div>
+        <h3>Pro</h3>
+        <div class="price">$4.99</div>
+        <div class="period">one-time purchase</div>
+        <ul>
+          <li>Unlimited scans</li>
+          <li>Advanced AI processing</li>
+          <li>No ads — ever</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn primary">Buy Pro — $4.99</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <div class="price">$10</div>
+        <div class="period">per seat / month</div>
+        <ul>
+          <li>All Pro features</li>
+          <li>Team management</li>
+          <li>Admin dashboard</li>
+          <li>Dedicated support SLA</li>
+        </ul>
+        <a href="#" class="btn" style="border:1px solid #333;color:#FFFFFF;">Contact Sales</a>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <blockquote>Saved us 30 seconds per scan — that's hours a week in our warehouse. No more peeling tape off every package.</blockquote>
+      <cite>— Warehouse Manager, Midwest Logistics</cite>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to see through it?</h2>
+    <p>Download PeekScan and start scanning through seals today.</p>
+    <div class="store-badges">
+      <a href="#" class="btn-primary">🍎 Download on App Store</a>
+      <a href="#" class="btn-secondary">▶️ Get it on Google Play</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Support</a>
+      <a href="#">Enterprise</a>
+    </div>
+    <p>© 2026 PeekScan Inc. All rights reserved. Made for the warehouse floor.</p>
+  </footer>
+</body>
+</html>

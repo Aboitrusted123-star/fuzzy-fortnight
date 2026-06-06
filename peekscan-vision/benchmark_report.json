@@ -1,0 +1,424 @@
+{
+    "summary": {
+        "total": 46,
+        "success": 33,
+        "accuracy": 71.74,
+        "avg_time_ms": 1053.52
+    },
+    "results": [
+        {
+            "file": "01_QR_clean.png",
+            "code_type": "QR",
+            "obstruction": "clean",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.5,
+            "data": "PeekScan-QR-Test"
+        },
+        {
+            "file": "01_clean.png",
+            "code_type": "clean",
+            "obstruction": "None",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.99,
+            "data": "PeekScan-HARD-Mode"
+        },
+        {
+            "file": "02_QR_clear_tape.png",
+            "code_type": "QR",
+            "obstruction": "clear_tape",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.02,
+            "data": "PeekScan-QR-Test"
+        },
+        {
+            "file": "02_taped.png",
+            "code_type": "taped",
+            "obstruction": "None",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.65,
+            "data": "PeekScan-HARD-Mode"
+        },
+        {
+            "file": "03_QR_frosted_tape.png",
+            "code_type": "QR",
+            "obstruction": "frosted_tape",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 22.69,
+            "data": "PeekScan-QR-Test"
+        },
+        {
+            "file": "03_hazy.png",
+            "code_type": "hazy",
+            "obstruction": "None",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.58,
+            "data": "PeekScan-HARD-Mode"
+        },
+        {
+            "file": "04_QR_shrink_wrap_tight.png",
+            "code_type": "QR",
+            "obstruction": "shrink_wrap_tight",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 2697.23,
+            "data": null
+        },
+        {
+            "file": "04_glint.png",
+            "code_type": "glint",
+            "obstruction": "None",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 3143.6,
+            "data": null
+        },
+        {
+            "file": "05_QR_shrink_wrap_wrinkled.png",
+            "code_type": "QR",
+            "obstruction": "shrink_wrap_wrinkled",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 3007.3,
+            "data": null
+        },
+        {
+            "file": "05_wrinkled.png",
+            "code_type": "wrinkled",
+            "obstruction": "None",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.67,
+            "data": "PeekScan-HARD-Mode"
+        },
+        {
+            "file": "06_QR_glint_overhead.png",
+            "code_type": "QR",
+            "obstruction": "glint_overhead",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.61,
+            "data": "PeekScan-QR-Test"
+        },
+        {
+            "file": "06_low_light.png",
+            "code_type": "low",
+            "obstruction": "light",
+            "status": "SUCCESS",
+            "source": "gFalse_dFalse_iFalse_mFalse_c2.0_b91",
+            "time_ms": 215.05,
+            "data": "PeekScan-HARD-Mode"
+        },
+        {
+            "file": "07_QR_glint_side.png",
+            "code_type": "QR",
+            "obstruction": "glint_side",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 4.0,
+            "data": "PeekScan-QR-Test"
+        },
+        {
+            "file": "07_perspective.png",
+            "code_type": "perspective",
+            "obstruction": "None",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.66,
+            "data": "PeekScan-HARD-Mode"
+        },
+        {
+            "file": "08_QR_dim_light.png",
+            "code_type": "QR",
+            "obstruction": "dim_light",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.86,
+            "data": "PeekScan-QR-Test"
+        },
+        {
+            "file": "08_heavy_glint.png",
+            "code_type": "heavy",
+            "obstruction": "glint",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 2897.38,
+            "data": null
+        },
+        {
+            "file": "09_QR_tamper_seal.png",
+            "code_type": "QR",
+            "obstruction": "tamper_seal",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.34,
+            "data": "PeekScan-QR-Test"
+        },
+        {
+            "file": "09_multi_seal.png",
+            "code_type": "multi",
+            "obstruction": "seal",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.76,
+            "data": "PeekScan-HARD-Mode"
+        },
+        {
+            "file": "10_C128_clean.png",
+            "code_type": "C128",
+            "obstruction": "clean",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.61,
+            "data": "PS-12345678"
+        },
+        {
+            "file": "10_dirty_lens.png",
+            "code_type": "dirty",
+            "obstruction": "lens",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.21,
+            "data": "PeekScan-HARD-Mode"
+        },
+        {
+            "file": "11_C128_clear_tape.png",
+            "code_type": "C128",
+            "obstruction": "clear_tape",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.43,
+            "data": "PS-12345678"
+        },
+        {
+            "file": "12_C128_frosted_tape.png",
+            "code_type": "C128",
+            "obstruction": "frosted_tape",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.24,
+            "data": "PS-12345678"
+        },
+        {
+            "file": "13_C128_shrink_wrap_tight.png",
+            "code_type": "C128",
+            "obstruction": "shrink_wrap_tight",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 3518.83,
+            "data": null
+        },
+        {
+            "file": "14_C128_shrink_wrap_wrinkled.png",
+            "code_type": "C128",
+            "obstruction": "shrink_wrap_wrinkled",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 2.81,
+            "data": "PS-12345678"
+        },
+        {
+            "file": "15_C128_glint_overhead.png",
+            "code_type": "C128",
+            "obstruction": "glint_overhead",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 2973.41,
+            "data": null
+        },
+        {
+            "file": "16_C128_glint_side.png",
+            "code_type": "C128",
+            "obstruction": "glint_side",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 2968.93,
+            "data": null
+        },
+        {
+            "file": "17_C128_dim_light.png",
+            "code_type": "C128",
+            "obstruction": "dim_light",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.08,
+            "data": "PS-12345678"
+        },
+        {
+            "file": "18_C128_tamper_seal.png",
+            "code_type": "C128",
+            "obstruction": "tamper_seal",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.13,
+            "data": "PS-12345678"
+        },
+        {
+            "file": "19_UPCA_clean.png",
+            "code_type": "UPCA",
+            "obstruction": "clean",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.67,
+            "data": "0123456789012"
+        },
+        {
+            "file": "20_UPCA_clear_tape.png",
+            "code_type": "UPCA",
+            "obstruction": "clear_tape",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.73,
+            "data": "0123456789012"
+        },
+        {
+            "file": "21_UPCA_frosted_tape.png",
+            "code_type": "UPCA",
+            "obstruction": "frosted_tape",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.22,
+            "data": "0123456789012"
+        },
+        {
+            "file": "22_UPCA_shrink_wrap_tight.png",
+            "code_type": "UPCA",
+            "obstruction": "shrink_wrap_tight",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 4592.75,
+            "data": null
+        },
+        {
+            "file": "23_UPCA_shrink_wrap_wrinkled.png",
+            "code_type": "UPCA",
+            "obstruction": "shrink_wrap_wrinkled",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.74,
+            "data": "0123456789012"
+        },
+        {
+            "file": "24_UPCA_glint_overhead.png",
+            "code_type": "UPCA",
+            "obstruction": "glint_overhead",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 3972.14,
+            "data": null
+        },
+        {
+            "file": "25_UPCA_glint_side.png",
+            "code_type": "UPCA",
+            "obstruction": "glint_side",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 4023.65,
+            "data": null
+        },
+        {
+            "file": "26_UPCA_dim_light.png",
+            "code_type": "UPCA",
+            "obstruction": "dim_light",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 4.33,
+            "data": "0123456789012"
+        },
+        {
+            "file": "27_UPCA_tamper_seal.png",
+            "code_type": "UPCA",
+            "obstruction": "tamper_seal",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 4.52,
+            "data": "0123456789012"
+        },
+        {
+            "file": "28_EAN13_clean.png",
+            "code_type": "EAN13",
+            "obstruction": "clean",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.64,
+            "data": "1234567890128"
+        },
+        {
+            "file": "29_EAN13_clear_tape.png",
+            "code_type": "EAN13",
+            "obstruction": "clear_tape",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.81,
+            "data": "1234567890128"
+        },
+        {
+            "file": "30_EAN13_frosted_tape.png",
+            "code_type": "EAN13",
+            "obstruction": "frosted_tape",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.18,
+            "data": "1234567890128"
+        },
+        {
+            "file": "31_EAN13_shrink_wrap_tight.png",
+            "code_type": "EAN13",
+            "obstruction": "shrink_wrap_tight",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 6309.68,
+            "data": null
+        },
+        {
+            "file": "32_EAN13_shrink_wrap_wrinkled.png",
+            "code_type": "EAN13",
+            "obstruction": "shrink_wrap_wrinkled",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 3.83,
+            "data": "1234567890128"
+        },
+        {
+            "file": "33_EAN13_glint_overhead.png",
+            "code_type": "EAN13",
+            "obstruction": "glint_overhead",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 3944.09,
+            "data": null
+        },
+        {
+            "file": "34_EAN13_glint_side.png",
+            "code_type": "EAN13",
+            "obstruction": "glint_side",
+            "status": "FAILED",
+            "source": null,
+            "time_ms": 4070.62,
+            "data": null
+        },
+        {
+            "file": "35_EAN13_dim_light.png",
+            "code_type": "EAN13",
+            "obstruction": "dim_light",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 4.42,
+            "data": "1234567890128"
+        },
+        {
+            "file": "36_EAN13_tamper_seal.png",
+            "code_type": "EAN13",
+            "obstruction": "tamper_seal",
+            "status": "SUCCESS",
+            "source": "original",
+            "time_ms": 4.53,
+            "data": "1234567890128"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+  "platforms": ["android", "ios"],
+  "ios": {
+    "modules": ["PeekScanVisionModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.peekscanvision.PeekScanVisionModule"]
+  }
+}

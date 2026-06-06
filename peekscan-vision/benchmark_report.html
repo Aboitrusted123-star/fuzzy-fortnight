@@ -1,0 +1,452 @@
+
+    <html>
+    <head>
+        <title>PeekScan Vision Benchmark Report</title>
+        <style>
+            body { font-family: sans-serif; margin: 20px; }
+            table { border-collapse: collapse; width: 100%; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .SUCCESS { color: green; font-weight: bold; }
+            .FAILED { color: red; font-weight: bold; }
+            .summary { background: #eee; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        </style>
+    </head>
+    <body>
+        <h1>PeekScan Vision Benchmark Report</h1>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>Total Images: 46</p>
+            <p>Success: 33</p>
+            <p>Accuracy: 71.74%</p>
+            <p>Avg Time: 1053.52ms</p>
+        </div>
+        <table>
+            <tr>
+                <th>File</th>
+                <th>Code Type</th>
+                <th>Obstruction</th>
+                <th>Status</th>
+                <th>Strategy</th>
+                <th>Time (ms)</th>
+            </tr>
+    
+            <tr>
+                <td>01_QR_clean.png</td>
+                <td>QR</td>
+                <td>clean</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.5</td>
+            </tr>
+        
+            <tr>
+                <td>01_clean.png</td>
+                <td>clean</td>
+                <td>None</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.99</td>
+            </tr>
+        
+            <tr>
+                <td>02_QR_clear_tape.png</td>
+                <td>QR</td>
+                <td>clear_tape</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.02</td>
+            </tr>
+        
+            <tr>
+                <td>02_taped.png</td>
+                <td>taped</td>
+                <td>None</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.65</td>
+            </tr>
+        
+            <tr>
+                <td>03_QR_frosted_tape.png</td>
+                <td>QR</td>
+                <td>frosted_tape</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>22.69</td>
+            </tr>
+        
+            <tr>
+                <td>03_hazy.png</td>
+                <td>hazy</td>
+                <td>None</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.58</td>
+            </tr>
+        
+            <tr>
+                <td>04_QR_shrink_wrap_tight.png</td>
+                <td>QR</td>
+                <td>shrink_wrap_tight</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>2697.23</td>
+            </tr>
+        
+            <tr>
+                <td>04_glint.png</td>
+                <td>glint</td>
+                <td>None</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>3143.6</td>
+            </tr>
+        
+            <tr>
+                <td>05_QR_shrink_wrap_wrinkled.png</td>
+                <td>QR</td>
+                <td>shrink_wrap_wrinkled</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>3007.3</td>
+            </tr>
+        
+            <tr>
+                <td>05_wrinkled.png</td>
+                <td>wrinkled</td>
+                <td>None</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.67</td>
+            </tr>
+        
+            <tr>
+                <td>06_QR_glint_overhead.png</td>
+                <td>QR</td>
+                <td>glint_overhead</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.61</td>
+            </tr>
+        
+            <tr>
+                <td>06_low_light.png</td>
+                <td>low</td>
+                <td>light</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>gFalse_dFalse_iFalse_mFalse_c2.0_b91</td>
+                <td>215.05</td>
+            </tr>
+        
+            <tr>
+                <td>07_QR_glint_side.png</td>
+                <td>QR</td>
+                <td>glint_side</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>4.0</td>
+            </tr>
+        
+            <tr>
+                <td>07_perspective.png</td>
+                <td>perspective</td>
+                <td>None</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.66</td>
+            </tr>
+        
+            <tr>
+                <td>08_QR_dim_light.png</td>
+                <td>QR</td>
+                <td>dim_light</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.86</td>
+            </tr>
+        
+            <tr>
+                <td>08_heavy_glint.png</td>
+                <td>heavy</td>
+                <td>glint</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>2897.38</td>
+            </tr>
+        
+            <tr>
+                <td>09_QR_tamper_seal.png</td>
+                <td>QR</td>
+                <td>tamper_seal</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.34</td>
+            </tr>
+        
+            <tr>
+                <td>09_multi_seal.png</td>
+                <td>multi</td>
+                <td>seal</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.76</td>
+            </tr>
+        
+            <tr>
+                <td>10_C128_clean.png</td>
+                <td>C128</td>
+                <td>clean</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.61</td>
+            </tr>
+        
+            <tr>
+                <td>10_dirty_lens.png</td>
+                <td>dirty</td>
+                <td>lens</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.21</td>
+            </tr>
+        
+            <tr>
+                <td>11_C128_clear_tape.png</td>
+                <td>C128</td>
+                <td>clear_tape</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.43</td>
+            </tr>
+        
+            <tr>
+                <td>12_C128_frosted_tape.png</td>
+                <td>C128</td>
+                <td>frosted_tape</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.24</td>
+            </tr>
+        
+            <tr>
+                <td>13_C128_shrink_wrap_tight.png</td>
+                <td>C128</td>
+                <td>shrink_wrap_tight</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>3518.83</td>
+            </tr>
+        
+            <tr>
+                <td>14_C128_shrink_wrap_wrinkled.png</td>
+                <td>C128</td>
+                <td>shrink_wrap_wrinkled</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>2.81</td>
+            </tr>
+        
+            <tr>
+                <td>15_C128_glint_overhead.png</td>
+                <td>C128</td>
+                <td>glint_overhead</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>2973.41</td>
+            </tr>
+        
+            <tr>
+                <td>16_C128_glint_side.png</td>
+                <td>C128</td>
+                <td>glint_side</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>2968.93</td>
+            </tr>
+        
+            <tr>
+                <td>17_C128_dim_light.png</td>
+                <td>C128</td>
+                <td>dim_light</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.08</td>
+            </tr>
+        
+            <tr>
+                <td>18_C128_tamper_seal.png</td>
+                <td>C128</td>
+                <td>tamper_seal</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.13</td>
+            </tr>
+        
+            <tr>
+                <td>19_UPCA_clean.png</td>
+                <td>UPCA</td>
+                <td>clean</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.67</td>
+            </tr>
+        
+            <tr>
+                <td>20_UPCA_clear_tape.png</td>
+                <td>UPCA</td>
+                <td>clear_tape</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.73</td>
+            </tr>
+        
+            <tr>
+                <td>21_UPCA_frosted_tape.png</td>
+                <td>UPCA</td>
+                <td>frosted_tape</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.22</td>
+            </tr>
+        
+            <tr>
+                <td>22_UPCA_shrink_wrap_tight.png</td>
+                <td>UPCA</td>
+                <td>shrink_wrap_tight</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>4592.75</td>
+            </tr>
+        
+            <tr>
+                <td>23_UPCA_shrink_wrap_wrinkled.png</td>
+                <td>UPCA</td>
+                <td>shrink_wrap_wrinkled</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.74</td>
+            </tr>
+        
+            <tr>
+                <td>24_UPCA_glint_overhead.png</td>
+                <td>UPCA</td>
+                <td>glint_overhead</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>3972.14</td>
+            </tr>
+        
+            <tr>
+                <td>25_UPCA_glint_side.png</td>
+                <td>UPCA</td>
+                <td>glint_side</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>4023.65</td>
+            </tr>
+        
+            <tr>
+                <td>26_UPCA_dim_light.png</td>
+                <td>UPCA</td>
+                <td>dim_light</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>4.33</td>
+            </tr>
+        
+            <tr>
+                <td>27_UPCA_tamper_seal.png</td>
+                <td>UPCA</td>
+                <td>tamper_seal</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>4.52</td>
+            </tr>
+        
+            <tr>
+                <td>28_EAN13_clean.png</td>
+                <td>EAN13</td>
+                <td>clean</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.64</td>
+            </tr>
+        
+            <tr>
+                <td>29_EAN13_clear_tape.png</td>
+                <td>EAN13</td>
+                <td>clear_tape</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.81</td>
+            </tr>
+        
+            <tr>
+                <td>30_EAN13_frosted_tape.png</td>
+                <td>EAN13</td>
+                <td>frosted_tape</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.18</td>
+            </tr>
+        
+            <tr>
+                <td>31_EAN13_shrink_wrap_tight.png</td>
+                <td>EAN13</td>
+                <td>shrink_wrap_tight</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>6309.68</td>
+            </tr>
+        
+            <tr>
+                <td>32_EAN13_shrink_wrap_wrinkled.png</td>
+                <td>EAN13</td>
+                <td>shrink_wrap_wrinkled</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>3.83</td>
+            </tr>
+        
+            <tr>
+                <td>33_EAN13_glint_overhead.png</td>
+                <td>EAN13</td>
+                <td>glint_overhead</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>3944.09</td>
+            </tr>
+        
+            <tr>
+                <td>34_EAN13_glint_side.png</td>
+                <td>EAN13</td>
+                <td>glint_side</td>
+                <td class="FAILED">FAILED</td>
+                <td>None</td>
+                <td>4070.62</td>
+            </tr>
+        
+            <tr>
+                <td>35_EAN13_dim_light.png</td>
+                <td>EAN13</td>
+                <td>dim_light</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>4.42</td>
+            </tr>
+        
+            <tr>
+                <td>36_EAN13_tamper_seal.png</td>
+                <td>EAN13</td>
+                <td>tamper_seal</td>
+                <td class="SUCCESS">SUCCESS</td>
+                <td>original</td>
+                <td>4.53</td>
+            </tr>
+        
+        </table>
+    </body>
+    </html>
+    
